@@ -29,9 +29,7 @@ jobs:
       # Step 3: Uploads your files to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://avika-aggarwal.xyz \   # CHANGE "YOUR-BUCKET-NAME" to your
-                                                   # actual bucket name from S3 console
-                                                   # e.g. s3://avika-website
+          aws s3 sync . s3://avika-aggarwal.xyz \                            
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
