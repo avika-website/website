@@ -1,0 +1,40 @@
+name: Deploy to S3        # just a label, you can name this anything you want
+
+on:
+  push:                   # trigger: when someone pushes code
+    branches: [main]      # "main" is your default branch name — go to your repo
+                          # and check what your branch is called (top left of repo,
+                          # usually says "main" or "master". Change this if different.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest   # GitHub's Linux machine — don't change this
+
+    steps:
+      # Step 1: Downloads your repo files onto GitHub's machine — don't change this
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Logs into AWS using the 2 secrets you saved earlier — don't change
+      # the secret names IF you named them exactly AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1    # S3 bucket region
+                                    # go to AWS S3 → click your bucket → "Properties" tab
+                                    # you will see the region written there e.g. "us-east-1"
+
+      # Step 3: Uploads your files to S3
+      - name: Deploy to S3
+        run: |
+          aws s3 sync . s3://avika-aggarwal.xyz \   # CHANGE "YOUR-BUCKET-NAME" to your
+                                                   # actual bucket name from S3 console
+                                                   # e.g. s3://avika-website
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "README.md"    # if you don't have a README.md, remove this line
+                                     # if you have other files you don't want on your website
+                                     # add them here like --exclude "notes.txt"
