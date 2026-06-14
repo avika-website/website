@@ -29,7 +29,7 @@ jobs:
       # Step 3: Uploads your files to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://avika-aggarwal.xyz \                            
+          aws s3 sync . s3://avika-aggarwal.xyz \                          
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
