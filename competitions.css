@@ -1,0 +1,141 @@
+/* ============================================================
+   Competition page — "WiCS Hackathon"
+   Reuses styles.css for the shared parts (nav, footer, chat,
+   fonts, color tokens). These rules only style THIS page's four
+   sections. Nothing here changes the landing page.
+   ============================================================ */
+
+:root {
+  /* Deep royal blue for the serif headings on this page
+     (matches the blue titles in the reference). Tweak to taste. */
+  --comp-blue: #1b3fb0;
+}
+
+
+/* ---------- 1. TAGLINE (sits directly above the two-column) - */
+.comp-hero {
+  background: var(--white);
+  text-align: left;      /* tagline sits at the left, like "MEDICAL DESIGN" */
+  padding: 44px 9% 0;    /* no bottom padding — the tagline sits right above the two columns */
+}
+.comp-hero__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+
+/* ---------- 3. TWO COLUMNS: role text + team photo ---------- */
+.comp-role {
+  background: var(--white);
+  padding: 32px 9% 70px;   /* tighter top so it sits just under the tagline */
+}
+.comp-role__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* role text | photo */
+  gap: 60px;
+  align-items: stretch;   /* both columns the same height so the box + photo line up */
+}
+/* Left column: role bullets inside a shaded box — same lavender box
+   style as the caption box under the photo. */
+.comp-role__text {
+  background: var(--lavender);
+  padding: 30px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* keep the bullets balanced within the box */
+}
+.comp-role__list {
+  margin: 0;
+  padding-left: 22px;        /* room for the bullet markers */
+}
+.comp-role__list li {
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.comp-role__list li:last-child {
+  margin-bottom: 0;
+}
+/* Underline helper: wrap words in <span class="u"> to underline them */
+.comp-role__text .u {
+  text-decoration: underline;
+}
+
+.comp-role__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+/* Lavender caption band sitting directly under the photo */
+.comp-role__caption {
+  background: var(--lavender);
+  padding: 26px 20px;
+  text-align: center;
+}
+.comp-role__caption-title {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.comp-role__caption-sub {
+  color: var(--body);
+  font-size: 15px;
+}
+
+
+/* ---------- 4. FINAL PRESENTATION BAND ---------------------- */
+.comp-final {
+  background: var(--lavender-2);   /* lighter band, like the reference */
+  padding: 70px 9%;
+}
+.comp-final__heading {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: left;               /* heading is left-aligned in the reference */
+  margin-bottom: 24px;
+}
+.comp-final__project {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-size: 1.7rem;
+  text-align: center;             /* project name is centered */
+  margin-bottom: 18px;
+}
+.comp-final__download {
+  text-align: center;             /* download link is centered */
+}
+.comp-final__download a {
+  color: var(--blue-link);
+  font-size: 20px;
+  font-weight: 600;
+}
+.comp-final__download a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- Responsive: stack the two columns on phones ----- */
+@media (max-width: 900px) {
+  .comp-role__inner {
+    grid-template-columns: 1fr;   /* role text on top, photo below */
+    gap: 34px;
+  }
+  .comp-hero,
+  .comp-role,
+  .comp-final {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}

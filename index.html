@@ -1,0 +1,288 @@
+<!--
+  ============================================================
+  Avika Aggarwal — personal landing page
+  Plain static HTML. No frameworks, no build tools.
+  Just three files: index.html, styles.css, script.js
+  Sections below are in the same order they appear on screen:
+    1. Nav bar
+    2. Hero (photo + name + tagline + bio)
+    3. Highlights (the three cards)
+    4. Résumé (download link + preview)
+    5. Footer (connect with me)
+    6. Chat widget (bottom-right "Contact Us" bubble)
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avika Aggarwal</title>
+
+  <!-- Google Fonts: Playfair Display (serif headings) + Mulish (clean sans body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Our own styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       1. NAV BAR  — centered, uppercase, letter-spaced
+       "Home" is the active tab (underlined).
+       The tabs scroll down to the matching section on this page.
+       Rename the three tabs by editing the text below.
+       ============================================================ -->
+  <header class="site-nav">
+    <nav class="nav-links">
+      <a href="#home" class="nav-link is-active">Home</a>
+      <!-- TAB 2 --> <a href="#experience" class="nav-link">Experience</a>
+      <!-- TAB 3 --> <a href="#projects" class="nav-link">Projects</a>
+      <!-- TAB 4 --> <a href="competitions.html" class="nav-link">Competitions</a>
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       2. HERO  — photo on the left, lavender text panel on the right
+       ============================================================ -->
+  <section id="home" class="hero">
+    <!-- Left: your photo. Drop your real image at assets/photo.jpg .
+         Until then, a gray placeholder shows automatically. -->
+    <div class="hero__photo">
+      <img
+        src="assets/photo.jpg"
+        alt="Avika Aggarwal"
+        onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%27600%27 height=%27760%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23dfe3f5%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2726%27 fill=%27%236b7280%27 text-anchor=%27middle%27%3EAdd assets/photo.jpg%3C/text%3E%3C/svg%3E';"
+      />
+    </div>
+
+    <!-- Right: lavender panel with tagline, name, and bio -->
+    <div class="hero__panel">
+      <p class="hero__eyebrow">Software Engineering &bull; Machine Learning &bull; AI Agents</p>
+      <h1 class="hero__name">Avika Aggarwal</h1>
+      <p class="hero__bio">
+        I am a UT Austin computer science and mathematics student interested in
+        software engineering, machine learning, and AI agents.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       3. HIGHLIGHTS  — small blue heading + three cards
+       Rename each card title/button and rewrite each paragraph.
+       (Text below is placeholder copy — swap in your real content.)
+       ============================================================ -->
+  <section class="highlights">
+    <p class="highlights__eyebrow">Avika Aggarwal | Computer Science</p>
+
+    <div class="cards">
+
+      <!-- CARD 1 -->
+      <article id="experience" class="card">
+        <h2 class="card__title">Experience</h2>
+        <p class="card__text">
+          <!-- PLACEHOLDER: replace with your real experience. -->
+          I've worked as a software engineer building and shipping features across
+          the stack. My experience spans backend services, data pipelines, and
+          machine-learning tooling, where I focus on writing clean, well-tested
+          code and measuring real impact.
+        </p>
+        <a href="#experience" class="card__button">Explore Experience</a>
+      </article>
+
+      <!-- CARD 2 -->
+      <article id="projects" class="card">
+        <h2 class="card__title">Projects</h2>
+        <p class="card__text">
+          <!-- PLACEHOLDER: replace with your real projects. -->
+          My projects range from full-stack web apps to machine-learning models and
+          autonomous AI agents. Each one has pushed me to turn an idea into a working,
+          deployable system and to reason carefully about performance and design.
+        </p>
+        <a href="#projects" class="card__button">View Projects</a>
+      </article>
+
+      <!-- CARD 3 -->
+      <article id="competitions" class="card">
+        <h2 class="card__title">Competitions</h2>
+        <p class="card__text">
+          I enjoy collaborative engineering challenges that require creativity and
+          rapid problem-solving. I've competed in WiCS Hackathon where we won Best
+          Hack out of 50 teams, as well as the National Medical Device Make-a-Thon,
+          developing a NICU/neonatal care concept.
+        </p>
+        <a href="#competitions" class="card__button">View Competitions</a>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       4. RÉSUMÉ  — download link + a paper-style preview
+       The "Download PDF" link points to assets/resume.pdf .
+       Drop your real PDF there and this link just works.
+       ============================================================ -->
+  <section id="resume" class="resume">
+    <p class="resume__eyebrow">Résumé</p>
+
+    <!-- Download link (opens/downloads assets/resume.pdf) -->
+    <p class="resume__download-row">
+      <a href="assets/resume.pdf" class="resume__download" download>Download PDF &#9656;</a>
+    </p>
+
+    <!-- Résumé preview. This embeds your actual PDF (assets/resume.pdf) so the
+         whole document shows here, exactly as it looks. It renders as soon as you
+         add the file; before that it just shows blank. -->
+    <iframe
+      class="resume__paper"
+      src="assets/resume.pdf"
+      title="Résumé preview"
+    ></iframe>
+  </section>
+
+
+  <!-- ============================================================
+       5. FOOTER  — blue curved band with a LinkedIn icon
+       Edit the LinkedIn link (href) below to your profile.
+       ============================================================ -->
+  <footer class="site-footer">
+    <!-- Curved top edge (lavender wave sitting on the blue band) -->
+    <svg class="footer__wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C480,120 960,120 1440,0 L1440,0 L0,0 Z" fill="#f4f5fd"></path>
+    </svg>
+
+    <div class="footer__content">
+      <p class="footer__title">Connect With Me</p>
+      <div class="footer__socials">
+        <!-- LinkedIn: replace href with your profile URL -->
+        <a href="https://www.linkedin.com/in/your-linkedin" class="footer__social" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="footer__social-icon">in</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Curved bottom edge -->
+    <svg class="footer__wave-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C480,0 960,0 1440,120 L1440,120 L0,120 Z" fill="#f4f5fd"></path>
+    </svg>
+  </footer>
+
+
+  <!-- ============================================================
+       7. GIVING BACK  — tagline + auto-playing photo slideshow + text
+       Same layout as the "Community Sounds" template: media on the
+       left, one short paragraph on the right. The slideshow cross-fades
+       through 4 images on its own (see the slideshow code in script.js).
+       Drop your real photos in /assets using the exact filenames below.
+       ============================================================ -->
+  <section id="giving-back" class="giving">
+    <p class="giving__eyebrow">Giving Back</p>
+
+    <div class="giving__row">
+      <!-- Left: auto-playing slideshow.
+           Each image is stacked on top of the others and fades in/out.
+           The first image starts visible (class "is-active").
+           If a photo file is missing, a labeled placeholder shows instead. -->
+      <div class="slideshow" id="givingSlideshow">
+        <img
+          class="slide is-active"
+          src="assets/giving-back-star-volunteer.jpg"
+          alt="Star Volunteer award (Instagram post)"
+          data-label="giving-back-star-volunteer.jpg"
+        />
+        <img
+          class="slide"
+          src="assets/giving-back-orphanage.jpg"
+          alt="Visiting an orphanage"
+          data-label="giving-back-orphanage.jpg"
+        />
+        <img
+          class="slide"
+          src="assets/giving-back-certificate.jpg"
+          alt="Connect4 certificate for 180+ volunteer hours"
+          data-label="giving-back-certificate.jpg"
+        />
+        <img
+          class="slide"
+          src="assets/giving-back-teaching.jpg"
+          alt="Teaching computer science and math to underprivileged girls"
+          data-label="giving-back-teaching.jpg"
+        />
+      </div>
+
+      <!-- Right: one short paragraph -->
+      <p class="giving__text">
+        Giving back to my community has been one of my biggest passions since
+        middle school — from teaching computer science and math to underprivileged
+        girls, to coordinating a nonprofit that connected over 500 students in India
+        with career guidance, to volunteering at local orphanages.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       6. CHAT WIDGET  — "Contact Us" bubble, bottom-right
+       The window is hidden until the round launcher button is clicked.
+       Messages are emailed to you via Web3Forms (see script.js).
+       ============================================================ -->
+  <div class="chat" id="chat">
+    <!-- The chat window (hidden by default; toggled open in script.js) -->
+    <div class="chat-window" id="chatWindow" hidden>
+      <!-- Blue header -->
+      <div class="chat-header">
+        <span class="chat-header__back" aria-hidden="true">&#8249;</span>
+        <span class="chat-header__title">Contact Us</span>
+        <span class="chat-header__min" aria-hidden="true">&#8964;</span>
+      </div>
+
+      <!-- Avatar + subtitle -->
+      <div class="chat-intro">
+        <div class="chat-avatar" aria-hidden="true">&#128100;</div>
+        <p class="chat-intro__text">We'll respond as soon as we can.</p>
+      </div>
+
+      <!-- Message list -->
+      <div class="chat-body" id="chatBody">
+        <div class="chat-row chat-row--host">
+          <div class="chat-avatar chat-avatar--small" aria-hidden="true">&#128100;</div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-bubble--host">Let me know if you have any questions!</div>
+            <p class="chat-meta">Avika Aggarwal | Computer Science &amp; Mathematics <span id="chatTime"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input row -->
+      <form class="chat-input" id="chatForm">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input__field"
+          placeholder="Enter your question or message here"
+          autocomplete="off"
+        />
+        <button type="submit" class="chat-input__send" aria-label="Send message">&#10148;</button>
+      </form>
+    </div>
+
+    <!-- Round launcher button (opens/closes the window) -->
+    <button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+      <span class="chat-launcher__icon" id="chatLauncherIcon">&#128172;</span>
+      <span class="chat-launcher__badge" id="chatBadge">1</span>
+    </button>
+  </div>
+
+  <!-- Our chat behavior -->
+  <script src="script.js"></script>
+</body>
+</html>

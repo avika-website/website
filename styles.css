@@ -1,0 +1,655 @@
+/* ============================================================
+   Avika Aggarwal — landing page styles
+   Organized top-to-bottom in the same order as index.html:
+     0. Design tokens (colors + fonts)  -> edit these to re-theme
+     1. Base / resets
+     2. Nav bar
+     3. Hero
+     4. Highlights (cards)
+     5. Résumé
+     6. Footer
+     7. Chat widget
+     8. Responsive (phones / tablets)
+   ============================================================ */
+
+
+/* ---------- 0. DESIGN TOKENS -------------------------------- */
+:root {
+  /* Colors */
+  --blue: #0b5cff;          /* primary blue: buttons + footer band */
+  --blue-link: #1a73e8;     /* lighter blue: tagline, links, small headings */
+  --ink: #1b1b1f;           /* near-black for big headings */
+  --body: #4a4a55;          /* gray for paragraph text */
+  --lavender: #edeffb;      /* hero panel + résumé background */
+  --lavender-2: #f4f5fd;    /* soft page-section background */
+  --white: #ffffff;
+  --line: #d9ddf1;          /* thin divider lines */
+
+  /* Fonts */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+
+/* ---------- 1. BASE / RESETS -------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scroll when nav tabs are clicked */
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--body);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--blue-link);
+  text-decoration: none;
+}
+
+
+/* ---------- 2. NAV BAR -------------------------------------- */
+.site-nav {
+  background: var(--white);
+  padding: 28px 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 44px;
+}
+
+.nav-link {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;      /* wide spacing like the screenshot */
+  text-transform: uppercase;
+  padding-bottom: 4px;
+}
+
+.nav-link:hover {
+  color: var(--blue);
+}
+
+/* Active tab gets a blue underline */
+.nav-link.is-active {
+  color: var(--ink);
+  border-bottom: 2px solid var(--blue-link);
+}
+
+
+/* ---------- 3. HERO ----------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* photo | text panel */
+  align-items: stretch;
+  gap: 0;
+  /* Larger side gaps so the hero sits inset from the page edges (like the
+     reference). 9% on each side scales with the screen width — increase it
+     for even more breathing room, decrease it to sit closer to the edges. */
+  padding: 10px 9% 60px;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fill the box, cropping as needed */
+  /* Box proportions — a tall portrait, like the reference. This controls the
+     height no matter what photo you drop in.
+     Even taller: use 3 / 4 or 2 / 3.   Shorter: use 1 / 1 or 5 / 4. */
+  aspect-ratio: 4 / 5;
+}
+
+.hero__panel {
+  background: var(--lavender);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 60px;
+}
+
+.hero__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+
+.hero__name {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero__bio {
+  color: var(--body);
+  font-size: 19px;
+  max-width: 460px;
+}
+
+
+/* ---------- 4. HIGHLIGHTS (CARDS) --------------------------- */
+.highlights {
+  padding: 60px 40px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.highlights__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-bottom: 26px;
+}
+
+/* Three equal columns on a soft lavender panel */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--lavender);
+  border-radius: 4px;
+  padding: 20px 10px 40px;
+}
+
+.card {
+  padding: 30px 34px;
+  text-align: center;
+  /* thin divider between cards */
+  border-right: 1px solid var(--line);
+  /* stack contents vertically so the button can be pinned to the bottom */
+  display: flex;
+  flex-direction: column;
+}
+.card:last-child {
+  border-right: none;
+}
+
+.card__title {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+.card__text {
+  color: var(--body);
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+/* Bright blue button, white uppercase letter-spaced text */
+.card__button {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 16px 28px;
+  border-radius: 2px;
+  /* push all buttons to the bottom of their card so they line up,
+     and keep each button hugging its own text width (centered) */
+  margin-top: auto;
+  align-self: center;
+}
+.card__button:hover {
+  background: #0847cc; /* slightly darker blue on hover */
+}
+
+
+/* ---------- 5. RÉSUMÉ --------------------------------------- */
+.resume {
+  background: var(--lavender-2);
+  padding: 60px 40px 80px;
+}
+
+.resume__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 20px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.resume__download-row {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.resume__download {
+  color: var(--blue-link);
+  font-size: 22px;
+  font-weight: 600;
+}
+.resume__download:hover {
+  text-decoration: underline;
+}
+
+/* White "paper" that holds the résumé preview */
+.resume__paper {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  /* Tall enough to preview a full page of the résumé. If your résumé is more
+     than one page and you want every page shown without scrolling inside the
+     box, increase this (about 1100px per page, e.g. 2200px for two pages). */
+  height: 1100px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--white);
+}
+
+.doc-name {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.doc-contact {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.doc-summary {
+  margin-bottom: 20px;
+}
+.doc-heading {
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px;
+  margin: 18px 0 8px;
+  font-size: 15px;
+}
+.doc-date {
+  float: right;
+  font-style: italic;
+}
+.resume__paper ul {
+  margin: 6px 0 0 22px;
+}
+
+
+/* ---------- 6. FOOTER --------------------------------------- */
+.site-footer {
+  position: relative;
+  background: var(--blue);
+  color: var(--white);
+  /* curved edges are drawn by the SVG waves top and bottom */
+}
+
+.footer__wave-top,
+.footer__wave-bottom {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+.footer__content {
+  padding: 20px 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer__title {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+}
+
+/* White rounded square with a blue "in" — the LinkedIn mark */
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  border-radius: 6px;
+}
+.footer__social-icon {
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 20px;
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+.footer__social:hover {
+  transform: translateY(-2px);
+  transition: transform 0.15s ease;
+}
+
+
+/* ---------- 7. CHAT WIDGET ---------------------------------- */
+.chat {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  font-family: var(--font-sans);
+}
+
+/* Round launcher button */
+.chat-launcher {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(11, 92, 255, 0.4);
+  margin-left: auto;
+  display: block;
+}
+.chat-launcher:hover {
+  background: #0847cc;
+}
+
+/* Little red "1" badge */
+.chat-launcher__badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-launcher__badge[hidden] {
+  display: none;
+}
+
+/* The chat window */
+.chat-window {
+  width: 340px;
+  max-width: calc(100vw - 40px);
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  margin-bottom: 16px;
+}
+.chat-window[hidden] {
+  display: none;
+}
+
+.chat-header {
+  background: var(--blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  font-weight: 600;
+}
+.chat-header__title {
+  font-size: 16px;
+}
+.chat-header__back,
+.chat-header__min {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.chat-intro {
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  padding: 0 16px 22px;
+}
+.chat-avatar {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: #e79ab0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+.chat-intro__text {
+  font-size: 14px;
+}
+
+.chat-body {
+  padding: 18px 14px;
+  min-height: 220px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--white);
+}
+
+/* One message row = small avatar + bubble */
+.chat-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+.chat-avatar--small {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.chat-bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  display: inline-block;
+}
+.chat-bubble--host {
+  background: #eef0f4;
+  color: #1b1b1f;
+}
+.chat-bubble--visitor {
+  background: var(--blue);
+  color: #fff;
+}
+.chat-meta {
+  font-size: 11px;
+  color: #8a8a94;
+  margin-top: 5px;
+}
+
+/* Visitor rows align to the right */
+.chat-row--visitor {
+  flex-direction: row-reverse;
+}
+.chat-row--visitor .chat-meta {
+  text-align: right;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #ececf2;
+  padding: 10px 12px;
+}
+.chat-input__field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  padding: 8px 4px;
+}
+.chat-input__send {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.chat-input__send:hover {
+  background: #0847cc;
+}
+
+
+/* ---------- GIVING BACK (slideshow section) ------------------ */
+.giving {
+  background: var(--lavender-2);
+  padding: 60px 40px 90px;
+}
+
+/* Small blue uppercase label — matches the other section eyebrows */
+.giving__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 20px;
+  max-width: 1200px;
+  margin: 0 auto 34px;
+}
+
+/* Two columns: slideshow on the left, one paragraph on the right */
+.giving__row {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;  /* media a little wider than the text */
+  gap: 60px;
+  align-items: center;
+}
+
+/* The slideshow frame. A fixed aspect ratio keeps the box from
+   resizing as different-shaped photos fade through it. */
+.slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #0f1116;   /* dark letterbox, like the template's video */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Every image is stacked in the same spot; only the active one is visible. */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* show the whole image (no cropping of certificates/screenshots) */
+  opacity: 0;
+  transition: opacity 1s ease;   /* this is the cross-fade */
+}
+.slide.is-active {
+  opacity: 1;
+}
+
+/* The paragraph on the right */
+.giving__text {
+  color: var(--body);
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* On tablets/phones, stack the slideshow above the text */
+@media (max-width: 900px) {
+  .giving__row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+
+/* ---------- 8. RESPONSIVE ----------------------------------- */
+
+/* Tablets and below: stack the hero and shrink the cards to one column */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;   /* photo on top, text below */
+    padding: 10px 20px 30px;
+  }
+  .hero__photo img {
+    min-height: 360px;
+  }
+  .hero__name {
+    font-size: 40px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;   /* one card per row */
+  }
+  .card {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Small phones: tighten spacing + let the nav wrap */
+@media (max-width: 560px) {
+  .nav-links {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .hero__panel {
+    padding: 30px 24px;
+  }
+  .resume {
+    padding: 40px 18px 60px;
+  }
+  .resume__paper {
+    padding: 30px 24px;
+  }
+}
