@@ -1,0 +1,102 @@
+/* ============================================================
+   Projects page
+   Reuses styles.css for the shared parts (nav, footer, chat,
+   fonts, color tokens). These rules only style this page.
+   Nothing here changes the other pages.
+   ============================================================ */
+
+:root {
+  /* Same deep royal blue accent used on the other pages */
+  --comp-blue: #1b3fb0;
+}
+
+
+/* ---------- Tagline (matches the other page taglines) ------- */
+.proj-hero {
+  background: var(--white);
+  padding: 44px 9% 0;
+}
+.proj-hero__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+
+/* ---------- Project grid ----------------------------------- */
+.proj-list {
+  background: var(--white);
+  padding: 28px 9% 70px;
+}
+.proj-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* two cards per row */
+  gap: 30px;
+  align-items: stretch;             /* cards in a row match height */
+}
+
+
+/* ---------- One project card (shaded lavender box) --------- */
+.proj-card {
+  background: var(--lavender);
+  padding: 30px 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.proj-card__title {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);          /* same blue serif as the other headings */
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+/* Optional role line (only some projects have one) */
+.proj-card__role {
+  color: var(--blue-link);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* Tech-stack pills */
+.proj-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.proj-tech {
+  background: var(--white);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* Description */
+.proj-card__desc {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* ---------- Responsive: one card per row on phones --------- */
+@media (max-width: 700px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .proj-hero,
+  .proj-list {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
