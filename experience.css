@@ -1,0 +1,177 @@
+/* ============================================================
+   Experience page
+   Reuses styles.css for the shared parts (nav, footer, chat,
+   fonts, color tokens). These rules only style this page.
+   Nothing here changes the other pages.
+   ============================================================ */
+
+:root {
+  /* Same deep royal blue accent used on the competitions page */
+  --comp-blue: #1b3fb0;
+}
+
+
+/* ---------- Tagline (matches the competitions tagline) ------ */
+.exp-hero {
+  background: var(--lavender-2);
+  padding: 44px 9% 0;
+}
+.exp-hero__eyebrow {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+
+/* ---------- The list of experiences ------------------------ */
+.exp-list {
+  background: var(--lavender-2);
+  padding: 30px 9% 74px;
+}
+.exp-list__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+/* ---------- One experience entry — a white card with a blue accent -- */
+.exp-item {
+  background: var(--white);
+  border-left: 4px solid var(--comp-blue);
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(27, 63, 176, 0.07);
+  padding: 32px 40px;
+  margin-bottom: 28px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.exp-item:last-child {
+  margin-bottom: 0;
+}
+/* gentle lift on hover for a bit of polish */
+.exp-item:hover {
+  box-shadow: 0 10px 28px rgba(27, 63, 176, 0.13);
+  transform: translateY(-3px);
+}
+
+/* Description (left) + Focus (right), like the screenshot.
+   Same 60px column gap as the competitions two-column. */
+.exp-item__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;   /* top-align so the Focus sits up top on every role */
+  margin: 18px 0;
+}
+.exp-item__title {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);   /* same blue serif style as "Best Hack Winner - WiCS Hackathon" */
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+.exp-item__meta {
+  color: var(--body);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* FOCUS label + value (centered, in the right column) */
+.exp-item__focus {
+  text-align: center;
+  transform: translateY(-80px);   /* lift the Focus up level with the job title */
+}
+.exp-item__focus-label {
+  color: var(--blue-link);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.exp-item__focus-value {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+/* Description text (left column when there's a Focus; full-width otherwise) */
+.exp-item__desc {
+  color: var(--body);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 18px 0;
+}
+/* inside the two-column, the .exp-item__body wrapper handles the spacing */
+.exp-item__body .exp-item__desc {
+  margin: 0;
+}
+
+/* Metrics: three stat tiles in a shaded lavender box (same lavender
+   box style used elsewhere on the site) */
+.exp-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: var(--lavender);
+  padding: 26px 20px;
+  margin: 20px 0;
+}
+.exp-metric {
+  text-align: center;
+}
+.exp-metric__value {
+  font-family: var(--font-serif);
+  color: var(--comp-blue);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+.exp-metric__label {
+  color: var(--body);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Extra detail line under the metrics */
+.exp-item__detail {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+/* Small pill tag (e.g. "Currently exploring: ...") */
+.exp-item__tag {
+  display: inline-block;
+  margin-top: 18px;
+  background: var(--lavender);
+  color: var(--comp-blue);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+
+/* ---------- Responsive: stack header + shrink stats -------- */
+@media (max-width: 700px) {
+  .exp-item__body {
+    grid-template-columns: 1fr;   /* description on top, focus below */
+    gap: 20px;
+  }
+  .exp-metric__value {
+    font-size: 1.4rem;
+  }
+  .exp-item {
+    padding: 26px 24px;   /* tighter card padding on phones */
+  }
+  .exp-hero,
+  .exp-list {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}

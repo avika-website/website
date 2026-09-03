@@ -1,0 +1,231 @@
+<!--
+  ============================================================
+  Experience page
+  Standalone page that reuses the site's shared styles
+  (styles.css) and chat behavior (script.js), with its own
+  section styles from experience.css.
+    - Tagline at the top
+    - One block per role: title · company/location/dates,
+      an optional FOCUS label, a description, a 3-stat tile
+      row, and a detail line/tag. Divider between roles.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience</title>
+
+  <!-- Same Google Fonts as the rest of the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared site styles, then this page's own styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="experience.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAV BAR (same as the other pages)
+       ============================================================ -->
+  <header class="site-nav">
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="experience.html" class="nav-link is-active">Experience</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="competitions.html" class="nav-link">Competitions</a>
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       TAGLINE (same style as the competitions tagline)
+       ============================================================ -->
+  <section class="exp-hero">
+    <p class="exp-hero__eyebrow">Experience</p>
+  </section>
+
+
+  <!-- ============================================================
+       EXPERIENCE ENTRIES
+       ============================================================ -->
+  <section class="exp-list">
+    <div class="exp-list__inner">
+
+      <!-- Role 1 -->
+      <article class="exp-item">
+        <h2 class="exp-item__title">Software Development Engineer Intern</h2>
+        <p class="exp-item__meta">NeuralSeek · Miami, FL · Summer 2026</p>
+
+        <div class="exp-item__body">
+          <p class="exp-item__desc">
+            Built an AI-powered multi-agent system that helped 400+ incoming interns get
+            answers to onboarding and training questions.
+          </p>
+          <div class="exp-item__focus">
+            <p class="exp-item__focus-label">Focus</p>
+            <p class="exp-item__focus-value">Multi-agent orchestration system</p>
+          </div>
+        </div>
+
+        <div class="exp-metrics">
+          <div class="exp-metric">
+            <p class="exp-metric__value">12s &rarr; 5s</p>
+            <p class="exp-metric__label">latency</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">10,000+</p>
+            <p class="exp-metric__label">Q&amp;A records</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">10+ hrs/week</p>
+            <p class="exp-metric__label">saved</p>
+          </div>
+        </div>
+
+        <p class="exp-item__detail">
+          Designed a parallel retrieval pipeline using Claude 3.5 Sonnet and Llama
+          sub-agents, with automated triaging for sensitive HR inquiries and targeted
+          retrieval across historical Q&amp;A data.
+        </p>
+      </article>
+
+      <!-- Role 2 -->
+      <article class="exp-item">
+        <h2 class="exp-item__title">Machine Learning Research Assistant</h2>
+        <p class="exp-item__meta">UT Austin · Austin, TX · 2026–Present</p>
+
+        <div class="exp-item__body">
+          <p class="exp-item__desc">
+            Building data pipelines for large-scale time-series anomaly detection.
+          </p>
+          <div class="exp-item__focus">
+            <p class="exp-item__focus-label">Focus</p>
+            <p class="exp-item__focus-value">Time-Series Anomaly Detection</p>
+          </div>
+        </div>
+
+        <div class="exp-metrics">
+          <div class="exp-metric">
+            <p class="exp-metric__value">20 million+</p>
+            <p class="exp-metric__label">readings</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">55%</p>
+            <p class="exp-metric__label">faster</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">16 &rarr; 9 hrs</p>
+            <p class="exp-metric__label">runtime</p>
+          </div>
+        </div>
+
+        <p class="exp-item__tag">Currently exploring: scikit-learn &amp; ARIMA</p>
+      </article>
+
+      <!-- Role 3 (no focus label) -->
+      <article class="exp-item">
+        <h2 class="exp-item__title">Teaching Assistant — Data Structures &amp; Algorithms</h2>
+        <p class="exp-item__meta">UT Austin · Austin, TX · 2026–Present</p>
+
+        <p class="exp-item__desc">
+          Helping 150 students turn algorithms into efficient, working Java code.
+        </p>
+
+        <div class="exp-metrics">
+          <div class="exp-metric">
+            <p class="exp-metric__value">150</p>
+            <p class="exp-metric__label">students</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">5 hrs/week</p>
+            <p class="exp-metric__label">code reviews</p>
+          </div>
+          <div class="exp-metric">
+            <p class="exp-metric__value">Java</p>
+            <p class="exp-metric__label">+ Algorithms</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER (same as the other pages)
+       ============================================================ -->
+  <footer class="site-footer">
+    <svg class="footer__wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C480,120 960,120 1440,0 L1440,0 L0,0 Z" fill="#f4f5fd"></path>
+    </svg>
+
+    <div class="footer__content">
+      <p class="footer__title">Connect With Me</p>
+      <div class="footer__socials">
+        <a href="https://www.linkedin.com/in/your-linkedin" class="footer__social" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="footer__social-icon">in</span>
+        </a>
+      </div>
+    </div>
+
+    <svg class="footer__wave-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C480,0 960,0 1440,120 L1440,120 L0,120 Z" fill="#f4f5fd"></path>
+    </svg>
+  </footer>
+
+
+  <!-- ============================================================
+       CHAT WIDGET (same as the other pages)
+       ============================================================ -->
+  <div class="chat" id="chat">
+    <div class="chat-window" id="chatWindow" hidden>
+      <div class="chat-header">
+        <span class="chat-header__back" aria-hidden="true">&#8249;</span>
+        <span class="chat-header__title">Contact Us</span>
+        <span class="chat-header__min" aria-hidden="true">&#8964;</span>
+      </div>
+
+      <div class="chat-intro">
+        <div class="chat-avatar" aria-hidden="true">&#128100;</div>
+        <p class="chat-intro__text">We'll respond as soon as we can.</p>
+      </div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="chat-row chat-row--host">
+          <div class="chat-avatar chat-avatar--small" aria-hidden="true">&#128100;</div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-bubble--host">Let me know if you have any questions!</div>
+            <p class="chat-meta">Avika Aggarwal | Computer Science &amp; Mathematics <span id="chatTime"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <form class="chat-input" id="chatForm">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input__field"
+          placeholder="Enter your question or message here"
+          autocomplete="off"
+        />
+        <button type="submit" class="chat-input__send" aria-label="Send message">&#10148;</button>
+      </form>
+    </div>
+
+    <button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+      <span class="chat-launcher__icon" id="chatLauncherIcon">&#128172;</span>
+      <span class="chat-launcher__badge" id="chatBadge">1</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
